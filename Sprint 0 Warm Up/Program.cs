@@ -8,6 +8,7 @@ namespace Sprint_0_Warm_Up
         static void Main(string[] args)
         {
             Tester t = new Tester();
+            WriteLine("waaa");
             t.Test();
         }
 

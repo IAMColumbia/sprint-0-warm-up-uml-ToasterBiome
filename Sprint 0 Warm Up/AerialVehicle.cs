@@ -6,41 +6,67 @@ namespace Sprint_0_Warm_Up
     {
         public int CurrentAltitude { get; set; }
 
-        Engine Engine { get; set; }
+        protected Engine Engine { get; set; }
+
+        protected bool IsFlying { get; set; }
+
+        protected int MaxAltitude { get; set; }
 
         public AerialVehicle()
         {
+            IsFlying = false;
+            Engine = new Engine();
+        }
+
+        public virtual string About()
+        {
+            string returnString = "This " + this + " has a max altitude of " + MaxAltitude + " ft." + "\n";
+            returnString += "It's current altitude is " + CurrentAltitude + " ft. \n";
+            returnString += Engine + " is" + (Engine.IsStarted ? "" : " not") + " started.";
+
+            return returnString;
 
         }
 
-        public bool About()
+        public virtual string TakeOff()
         {
-            throw new NotImplementedException();
+            if(Engine.IsStarted)
+            {
+                IsFlying = true;
+                return "Taking off!";
+            } else
+            {
+                return "The engine is not started.";
+            }
         }
 
-        public bool TakeOff()
+        public virtual string StartEngine()
         {
-            throw new NotImplementedException();
-        }
+            Engine.Start();
+            return this + " is flying";
 
-        public void StartEngine()
-        {
-            throw new NotImplementedException();
         }
 
         public void FlyDown(int howMuch)
         {
-            throw new NotImplementedException();
+            if(howMuch <= CurrentAltitude)
+            {
+                CurrentAltitude -= howMuch;
+            }
+
         }
 
         internal void FlyUp()
         {
-            throw new NotImplementedException();
+            FlyUp(1000);
         }
 
         internal void FlyUp(int HowMuch)
         {
-            throw new NotImplementedException();
+            if(CurrentAltitude + HowMuch <= MaxAltitude)
+            {
+                CurrentAltitude += HowMuch;
+            }
         }
     }
 }
