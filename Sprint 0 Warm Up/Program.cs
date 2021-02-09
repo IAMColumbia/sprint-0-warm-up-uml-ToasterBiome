@@ -69,6 +69,13 @@ namespace Sprint_0_Warm_Up
                 WriteLine("Call ap.FlyDown(ap.CurrentAltitude) this should land");
                 ap.FlyDown(ap.CurrentAltitude); //Land by flying down current altitiute
                 WriteLine(ap.About());
+
+
+                //now we try airport
+
+                Airport airport = new Airport("GREEB", 10);
+
+                WriteLine(airport.Land(ap));
             }
         }
     }
