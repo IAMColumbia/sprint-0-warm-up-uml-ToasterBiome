@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sprint_0_Warm_Up
 {
-    class ToyPlane : Airplane
+    public class ToyPlane : Airplane
     {
         public bool isWoundUP;
 
@@ -22,7 +22,7 @@ namespace Sprint_0_Warm_Up
 
         public string getWindUpString()
         {
-            return "The toy plane is " + (isWoundUP ? "" : "not") + "wound up";
+            return "The toy plane is " + (isWoundUP ? "" : "not ") + "wound up";
         }
 
         public override string StartEngine()
@@ -44,9 +44,11 @@ namespace Sprint_0_Warm_Up
 
         public void UnWind()
         {
-
+            isWoundUP = false;
         }
 
-        public void WindUp() { }
+        public void WindUp() {
+            isWoundUP = true;
+        }
     }
 }

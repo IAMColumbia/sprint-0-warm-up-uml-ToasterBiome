@@ -6,11 +6,11 @@ namespace Sprint_0_Warm_Up
     {
         public int CurrentAltitude { get; set; }
 
-        protected Engine Engine { get; set; }
+        public Engine Engine { get; set; }
 
         public bool IsFlying { get; set; }
 
-        protected int MaxAltitude { get; set; }
+        public int MaxAltitude { get; set; }
 
         public AerialVehicle()
         {
@@ -56,12 +56,12 @@ namespace Sprint_0_Warm_Up
 
         }
 
-        internal void FlyUp()
+        public void FlyUp()
         {
             FlyUp(1000);
         }
 
-        internal void FlyUp(int HowMuch)
+        public void FlyUp(int HowMuch)
         {
             if(CurrentAltitude + HowMuch <= MaxAltitude)
             {
